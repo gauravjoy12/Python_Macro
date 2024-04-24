@@ -2,7 +2,7 @@ import xlwings as xw
 workbook_path = "C:\\Users\\X250380\\OneDrive - MerckGroup\\Desktop\\SoPo Macro\\Macro_file_1.xlsm"
 macro_name ="MainZCBB.MainZCBB"
 macro_name2 ="mainZCOR.ZCOR"
-try
+try:
 
         # Start an Excel application
         app = xw.App(visible=False)  # visible=False hides the Excel application window
