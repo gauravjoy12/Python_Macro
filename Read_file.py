@@ -4,16 +4,16 @@ import pandas as pd
 # Load the workbook
 workbook = openpyxl.load_workbook("LNX Master.xlsx")
 
-# Access the worksheet named "Complete list"
+# Access the worksheet named "complete list"
 worksheet = workbook["complete list"]
 
-# Load data into a list of lists
-data = []
-for row in worksheet.iter_rows(values_only=True):
-    data.append(row)
+
 
 # Convert the list of lists into a DataFrame
-df = pd.DataFrame(data)
+df = pd.read_excel(worksheet)
 
-# Display the DataFrame
-print(df)
+# Filter the DataFrame to include only rows where '4321664' exists
+filtered_df = df[df.apply(lambda row: '4321664' in row.values, axis=1)]
+
+# Display the filtered DataFrame
+print(filtered_df.head(10))
